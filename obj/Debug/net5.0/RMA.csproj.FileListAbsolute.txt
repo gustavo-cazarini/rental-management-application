@@ -1,0 +1,16 @@
+C:\Users\Gustavo\Desktop\Projetos\DIO\8 - Criando um APP simples de cadastro de séries em .NET\RMA\obj\Debug\net5.0\RMA.csproj.AssemblyReference.cache
+C:\Users\Gustavo\Desktop\Projetos\DIO\8 - Criando um APP simples de cadastro de séries em .NET\RMA\obj\Debug\net5.0\RMA.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Gustavo\Desktop\Projetos\DIO\8 - Criando um APP simples de cadastro de séries em .NET\RMA\obj\Debug\net5.0\RMA.AssemblyInfoInputs.cache
+C:\Users\Gustavo\Desktop\Projetos\DIO\8 - Criando um APP simples de cadastro de séries em .NET\RMA\obj\Debug\net5.0\RMA.AssemblyInfo.cs
+C:\Users\Gustavo\Desktop\Projetos\DIO\8 - Criando um APP simples de cadastro de séries em .NET\RMA\obj\Debug\net5.0\RMA.csproj.CoreCompileInputs.cache
+C:\Users\Gustavo\Desktop\Projetos\DIO\8 - Criando um APP simples de cadastro de séries em .NET\RMA\bin\Debug\net5.0\RMA.exe
+C:\Users\Gustavo\Desktop\Projetos\DIO\8 - Criando um APP simples de cadastro de séries em .NET\RMA\bin\Debug\net5.0\RMA.deps.json
+C:\Users\Gustavo\Desktop\Projetos\DIO\8 - Criando um APP simples de cadastro de séries em .NET\RMA\bin\Debug\net5.0\RMA.runtimeconfig.json
+C:\Users\Gustavo\Desktop\Projetos\DIO\8 - Criando um APP simples de cadastro de séries em .NET\RMA\bin\Debug\net5.0\RMA.runtimeconfig.dev.json
+C:\Users\Gustavo\Desktop\Projetos\DIO\8 - Criando um APP simples de cadastro de séries em .NET\RMA\bin\Debug\net5.0\RMA.dll
+C:\Users\Gustavo\Desktop\Projetos\DIO\8 - Criando um APP simples de cadastro de séries em .NET\RMA\bin\Debug\net5.0\ref\RMA.dll
+C:\Users\Gustavo\Desktop\Projetos\DIO\8 - Criando um APP simples de cadastro de séries em .NET\RMA\bin\Debug\net5.0\RMA.pdb
+C:\Users\Gustavo\Desktop\Projetos\DIO\8 - Criando um APP simples de cadastro de séries em .NET\RMA\obj\Debug\net5.0\RMA.dll
+C:\Users\Gustavo\Desktop\Projetos\DIO\8 - Criando um APP simples de cadastro de séries em .NET\RMA\obj\Debug\net5.0\ref\RMA.dll
+C:\Users\Gustavo\Desktop\Projetos\DIO\8 - Criando um APP simples de cadastro de séries em .NET\RMA\obj\Debug\net5.0\RMA.pdb
+C:\Users\Gustavo\Desktop\Projetos\DIO\8 - Criando um APP simples de cadastro de séries em .NET\RMA\obj\Debug\net5.0\RMA.genruntimeconfig.cache
