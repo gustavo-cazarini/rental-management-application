@@ -6,6 +6,7 @@ namespace RMA
     class Program
     {
         static SerieRepositorio repositorio = new SerieRepositorio();
+        static FilmeRepositorio filmeRepositorio = new FilmeRepositorio();
         static void Main(string[] args)
         {
             ObterOpcaoUsuario();
@@ -156,7 +157,7 @@ namespace RMA
                         OpcaoSerie();
                         break;
                     case "2":
-                        //OpcaoFilme();
+                        OpcaoFilme();
                         break;
                     case "3":
                         //OpcaoAnime();
@@ -222,6 +223,181 @@ namespace RMA
             }
 
             Sair();
+        }
+
+        private static void OpcaoFilme()
+        {
+            Console.WriteLine();
+            Console.WriteLine("Filmes selecionado");
+            Console.WriteLine("1 - Listar filmes");
+            Console.WriteLine("2 - Inserir novo filme");
+            Console.WriteLine("3 - Atualizar filme");
+            Console.WriteLine("4 - Excluir filme");
+            Console.WriteLine("5 - Visualizar filme");
+            Console.WriteLine("C - Limpar tela");
+            Console.WriteLine("R - Voltar ao menu principal");
+            Console.WriteLine("X - Sair");
+            Console.WriteLine();
+
+            string opcaoUsuario = Console.ReadLine().ToUpper();
+            Console.WriteLine();
+
+            while (opcaoUsuario.ToUpper() != "X")
+            {
+                switch (opcaoUsuario)
+                {
+                    case "1":
+                        ListarFilmes();
+                        break;
+                    case "2":
+                        InserirFilme();
+                        break;
+                    case "3":
+                        AtualizarFilme();
+                        break;
+                    case "4":
+                        ExcluirFilme();
+                        break;
+                    case "5":
+                        VisualizarFilme();
+                        break;
+                    case "C":
+                        Console.Clear();
+                        opcaoUsuario = Console.ReadLine().ToUpper();
+                        break;
+                    case "R":
+                        ObterOpcaoUsuario();
+                        break;
+                    default:
+                        throw new ArgumentOutOfRangeException();
+                }
+            }
+
+            Sair();
+        }
+
+        private static void ListarFilmes()
+        {
+            Console.WriteLine("Listar filmes");
+
+            var lista = filmeRepositorio.Lista();
+
+            if (lista.Count == 0)
+            {
+                Console.WriteLine("Nenhum filme cadastrado");
+            }
+
+            foreach (var filme in lista)
+            {
+                var excluido = filme.retornaExcluido();
+
+                Console.WriteLine("#ID {0}: - {1} {2}", filme.retornaId(), filme.retornaTitulo(), (excluido ? "*Excluido*" : ""));
+            }
+            Console.ReadLine();
+            OpcaoFilme();
+        }
+
+        private static void InserirFilme()
+        {
+            Console.WriteLine("Inserir novo filme");
+
+            foreach (int i in Enum.GetValues(typeof(Genero)))
+            {
+                Console.WriteLine("{0}-{1}", i, Enum.GetName(typeof(Genero), i));
+            }
+            Console.Write("Digite o gênero entre as opções acima: ");
+            int entradaGenero = int.Parse(Console.ReadLine());
+
+            Console.Write("Digite o Título do Filme: ");
+            string entradaTitulo = Console.ReadLine();
+
+            Console.Write("Digite a Descrição do Filme: ");
+            string entradaDescricao = Console.ReadLine();
+
+            Console.Write("Digite a Duração do filme: ");
+            Console.WriteLine("Exemplo: 02:04:00");
+            DateTime entradaDuracao = DateTime.Parse(Console.ReadLine());
+
+            Console.Write("Digite o Ano de Lançamento: ");
+            int entradaAno = int.Parse(Console.ReadLine());
+
+            Filme novoFilme = new Filme(id: filmeRepositorio.ProximoId(),
+                                        genero: (Genero)entradaGenero,
+                                        titulo: entradaTitulo,
+                                        descricao: entradaDescricao,
+                                        duracao: entradaDuracao,
+                                        ano: entradaAno);
+
+            filmeRepositorio.Insere(novoFilme);
+            Console.WriteLine("Filme inserido com sucesso!");
+            Console.ReadLine();
+            OpcaoFilme();
+        }
+
+        private static void AtualizarFilme()
+        {
+            Console.WriteLine("Digite o id do filme: ");
+            int indiceFilme = int.Parse(Console.ReadLine());
+
+            foreach (int i in Enum.GetValues(typeof(Genero)))
+            {
+                Console.WriteLine("{0}-{1}", i, Enum.GetName(typeof(Genero), i));
+            }
+            Console.Write("Digite o gênero entre as opções acima: ");
+            int entradaGenero = int.Parse(Console.ReadLine());
+
+            Console.Write("Digite o Título do Filme: ");
+            string entradaTitulo = Console.ReadLine();
+
+            Console.Write("Digite a Descrição do Filme: ");
+            string entradaDescricao = Console.ReadLine();
+
+            Console.Write("Digite a Duração do Filme: ");
+            DateTime entradaDuracao = DateTime.Parse(Console.ReadLine());
+
+            Console.Write("Digite o Ano de Lançamento: ");
+            int entradaAno = int.Parse(Console.ReadLine());
+
+            Filme atualizaFilme = new Filme(id: indiceFilme,
+                                            genero: (Genero)entradaGenero,
+                                            titulo: entradaTitulo,
+                                            descricao: entradaDescricao,
+                                            duracao: entradaDuracao,
+                                            ano: entradaAno);
+
+            filmeRepositorio.Atualiza(indiceFilme, atualizaFilme);
+            Console.WriteLine("Filme atualizado!");
+            Console.ReadLine();
+            OpcaoFilme();
+        }
+
+        private static void ExcluirFilme()
+        {
+            Console.Write("Digite o id do filme: ");
+            int indiceFilme = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("Você tem certeza da exclusão desse filme?" +
+                            Environment.NewLine +
+                            "Digite \"s\" para sim ou \"n\" para não: ");
+
+            if (Console.ReadLine().ToUpper() == "S")
+            {
+                filmeRepositorio.Exclui(indiceFilme);
+            }
+            Console.ReadLine();
+            OpcaoFilme();
+        }
+
+        private static void VisualizarFilme()
+        {
+            Console.Write("Digite o id do filme: ");
+            int indiceFilme = int.Parse(Console.ReadLine());
+
+            var filme = filmeRepositorio.RetornaPorId(indiceFilme);
+
+            Console.WriteLine(filme);
+            Console.ReadLine();
+            OpcaoFilme();
         }
 
         private static void Sair()
